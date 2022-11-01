@@ -16,28 +16,28 @@ public class EquipeController {
         this.equipeService = equipeService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     List<Equipe> retrieveAll() {
         return equipeService.retrieveAllEquipes();
     }
 
-    @PostMapping("/")
-    Equipe add(Equipe ce){
+    @PostMapping()
+    Equipe add(@RequestBody Equipe ce){
         return equipeService.addEquipe(ce);
     }
 
-    @PatchMapping("/")
-    Equipe patch(Equipe ce){
+    @PatchMapping()
+    Equipe patch(@RequestBody Equipe ce){
         return equipeService.updateEquipe(ce);
     }
 
     @GetMapping("/{id}")
-    Equipe retrieveById(int id){
+    Equipe retrieveById(@PathVariable int id){
         return equipeService.retrieveEquipe(id);
     }
 
     @DeleteMapping("/{id}")
-    void deleteById(int id){
+    void deleteById(@PathVariable int id){
         equipeService.removeEquipe(id);
     }
 }

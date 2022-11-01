@@ -1,11 +1,13 @@
 package tn.esprit.mohamedali.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -13,7 +15,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Equipe {
+public class Equipe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEquipe;
@@ -23,5 +25,9 @@ public class Equipe {
     private Niveau niveau;
 
     @ManyToMany(mappedBy = "etudiantsEquipes")
+    @JsonIgnore
     private Set<Etudiant> etudiants;
+
+    @OneToOne
+    private DetailEquipe detailEquipe;
 }

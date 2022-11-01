@@ -16,28 +16,28 @@ public class ContratController {
         this.contratService = contratService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     List<Contrat> retrieveAll() {
         return contratService.retrieveAllContrats();
     }
 
-    @PostMapping("/")
-    Contrat add(Contrat ce){
+    @PostMapping()
+    Contrat add(@RequestBody Contrat ce){
         return contratService.addContrat(ce);
     }
 
-    @PatchMapping("/")
-    Contrat patch(Contrat ce){
+    @PatchMapping()
+    Contrat patch(@RequestBody Contrat ce){
         return contratService.updateContrat(ce);
     }
 
     @GetMapping("/{id}")
-    Contrat retrieveById(int id){
+    Contrat retrieveById(@PathVariable int id){
         return contratService.retrieveContrat(id);
     }
 
     @DeleteMapping("/{id}")
-    void deleteById(int id){
+    void deleteById(@PathVariable int id){
         contratService.removeContrat(id);
     }
 }

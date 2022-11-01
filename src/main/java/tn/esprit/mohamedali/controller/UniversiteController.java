@@ -16,28 +16,28 @@ public class UniversiteController {
         this.universiteService = universiteService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     List<Universite> retrieveAll() {
         return universiteService.retrieveAllUniversites();
     }
 
-    @PostMapping("/")
-    Universite add(Universite ce){
+    @PostMapping()
+    Universite add(@RequestBody Universite ce){
         return universiteService.addUniversite(ce);
     }
 
-    @PatchMapping("/")
-    Universite patch(Universite ce){
+    @PatchMapping()
+    Universite patch(@RequestBody Universite ce){
         return universiteService.updateUniversite(ce);
     }
 
     @GetMapping("/{id}")
-    Universite retrieveById(int id){
+    Universite retrieveById(@PathVariable int id){
         return universiteService.retrieveUniversite(id);
     }
 
     @DeleteMapping("/{id}")
-    void deleteById(int id){
+    void deleteById(@PathVariable int id){
         universiteService.removeUniversite(id);
     }
 }

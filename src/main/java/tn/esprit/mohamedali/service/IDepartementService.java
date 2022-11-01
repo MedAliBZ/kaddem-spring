@@ -9,4 +9,5 @@ public interface IDepartementService {
     Departement addDepartement(Departement d);
     Departement updateDepartement(Departement d);
     Departement retrieveDepartement(Integer idDepart);
+    boolean assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement);
 }

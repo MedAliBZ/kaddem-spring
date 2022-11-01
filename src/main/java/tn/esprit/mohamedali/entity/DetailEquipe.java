@@ -8,18 +8,20 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Universite implements Serializable {
+public class DetailEquipe implements Serializable {
     @Id
-    private int idUniv;
-    private String nomUniv;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int salle;
+    private String thematique;
 
-    @OneToMany
-    private List<Departement> departements;
+    @OneToOne(mappedBy = "detailEquipe")
+
+    private Equipe equipe;
 }

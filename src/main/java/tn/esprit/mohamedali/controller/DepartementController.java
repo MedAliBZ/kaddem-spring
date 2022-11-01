@@ -16,23 +16,28 @@ public class DepartementController {
         this.departementService = departementService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     List<Departement> retrieveAll() {
         return departementService.retrieveAllDepartements();
     }
 
-    @PostMapping("/")
-    Departement add(Departement ce){
+    @PostMapping()
+    Departement add(@RequestBody Departement ce){
         return departementService.addDepartement(ce);
     }
 
-    @PatchMapping("/")
-    Departement patch(Departement ce){
+    @PatchMapping()
+    Departement patch(@RequestBody Departement ce){
         return departementService.updateDepartement(ce);
     }
 
     @GetMapping("/{id}")
-    Departement retrieveById(int id){
+    Departement retrieveById(@PathVariable int id){
         return departementService.retrieveDepartement(id);
+    }
+
+    @GetMapping("/{idUniversite}/{idDepartement}")
+    public void assignUniversiteToDepartement(@PathVariable Integer idUniversite,@PathVariable Integer idDepartement){
+        departementService.assignUniversiteToDepartement(idUniversite,idDepartement);
     }
 }

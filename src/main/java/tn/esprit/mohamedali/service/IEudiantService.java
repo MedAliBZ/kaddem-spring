@@ -10,8 +10,10 @@ import java.util.List;
 public interface IEudiantService {
     List<Etudiant> retrieveAllEtudiants();
     Etudiant addEtudiant (Etudiant e);
-    Etudiant addAndAssignEtudiant (Etudiant e, Departement d);
     Etudiant updateEtudiant (Etudiant e);
     Etudiant retrieveEtudiant(Integer idEtudiant);
     void removeEtudiant(Integer idEtudiant);
+    Etudiant assignEtudiantToDepartement(Integer etudiantId, Integer departementId);
+    Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat,
+                                                     Integer idEquipe);
 }
